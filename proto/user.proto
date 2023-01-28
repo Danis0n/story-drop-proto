@@ -4,17 +4,17 @@ package user;
 
 service UserService {
   rpc Create(CreateUser) returns (User) {}
-  rpc FindAll(FindAll) returns (FindAllResponse) {}
-  rpc FindOneBy(FindOneBy) returns (User) {}
+  rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
+  rpc FindOneBy(FindOneByRequest) returns (User) {}
 }
 
-message FindOneBy {
+message FindOneByRequest {
   string username = 1;
   string email = 2;
   string nickname = 3;
 }
 
-message FindAll {}
+message FindAllRequest {}
 
 message FindAllResponse {
   repeated User users = 1;
