@@ -6,6 +6,11 @@ service UserService {
   rpc Create(CreateUser) returns (User) {}
   rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
   rpc FindOneBy(FindOneByRequest) returns (User) {}
+  rpc FindOneId(FindOneIdRequest) returns (User) {}
+}
+
+message FindOneIdRequest {
+  string uuid = 1;
 }
 
 message FindOneByRequest {
