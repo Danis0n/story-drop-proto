@@ -7,7 +7,12 @@ service UserService {
   rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
   rpc FindOneBy(FindOneByRequest) returns (User) {}
   rpc FindOneId(FindOneIdRequest) returns (User) {}
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
 }
+
+message UpdateRequest {}
+
+message UpdateResponse {}
 
 message FindOneIdRequest {
   string uuid = 1;

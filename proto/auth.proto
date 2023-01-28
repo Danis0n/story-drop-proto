@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package test;
+
+service AuthService {
+  rpc Login(LoginRequest) returns(LoginResponse) {}
+  rpc Logout(ValidateRequest) returns (LogoutResponse) {}
+  rpc Validate(ValidateRequest) returns (ValidateResponse) {}
+}
+
+message ValidateResponse {
+  bool permission = 1;
+}
+
+message ValidateRequest {
+  string sessionId = 1;
+  string deviceId = 2;
+}
+
+message LogoutResponse {
+  bool isLoggedOut = 1;
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  User user = 1;
+  bool isLogged = 2;
+}
+
+message User {
+  string uuid = 1;
+  string username = 2;
+  string password = 3;
+  string email = 4;
+  string nickname = 5;
+  bool isEnabled = 6;
+  bool isLocked = 7;
+  Image avatar = 8;
+  UserInfo info = 9;
+  repeated string roles = 10;
+}
+
+message Role {
+  string name = 1;
+}
+
+message UserInfo {
+  string text = 1;
+  string contact = 2;
+}
+
+message Image {
+  string imageUuid = 1;
+  string buffer = 2;
+  string date = 3;
+  string name = 4;
+}
