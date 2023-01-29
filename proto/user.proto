@@ -47,14 +47,13 @@ message CreateUser {
 message User {
   string uuid = 1;
   string username = 2;
-  string password = 3;
-  string email = 4;
-  string nickname = 5;
-  bool isEnabled = 6;
-  bool isLocked = 7;
-  Image avatar = 8;
-  UserInfo info = 9;
-  repeated string roles = 10;
+  string email = 3;
+  string nickname = 4;
+  bool isEnabled = 5;
+  bool isLocked = 6;
+  Image avatar = 7;
+  UserInfo info = 8;
+  repeated string roles = 9;
 }
 
 message Role {
