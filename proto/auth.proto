@@ -26,7 +26,7 @@ message LoginRequest {
   string username = 1;
   string password = 2;
   string sessionId = 3;
-  string sessionExpire = 4;
+  int32 sessionExpire = 4;
   string userAgent = 5;
   string ip = 6;
 }
