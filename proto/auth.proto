@@ -15,6 +15,7 @@ message ValidateResponse {
 message ValidateRequest {
   string sessionId = 1;
   string deviceId = 2;
+  string ip = 3;
 }
 
 message LogoutResponse {
@@ -24,11 +25,17 @@ message LogoutResponse {
 message LoginRequest {
   string username = 1;
   string password = 2;
+  string sessionId = 3;
+  string sessionExpire = 4;
+  string userAgent = 5;
+  string ip = 6;
 }
 
 message LoginResponse {
   User user = 1;
-  bool isLogged = 2;
+  string deviceId = 2;
+  string sessionId = 3;
+  bool isLogged = 4;
 }
 
 message User {
