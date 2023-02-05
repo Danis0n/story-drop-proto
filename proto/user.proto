@@ -9,10 +9,10 @@ service UserService {
   rpc FindOneId(FindOneIdRequest) returns (User) {}
   rpc FindOneSession(FindOneSessionRequest) returns (User) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
-  rpc FindAvatarByUser(FindAvatarByUser) returns (Image) {}
+  rpc FindAvatarByUser(FindAvatarByUserRequest) returns (Image) {}
 }
 
-message FindAvatarByUser {
+message FindAvatarByUserRequest {
   string uuid = 1;
 }
 
