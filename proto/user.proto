@@ -9,7 +9,7 @@ service UserService {
   rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
   rpc FindOneSession(FindOneSessionRequest) returns (FindOneResponse) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
-  rpc FindAvatarByUser(FindAvatarByUserRequest) returns (Image) {}
+  rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
 }
 
 message FindOneResponse {
