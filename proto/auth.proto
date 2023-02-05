@@ -45,7 +45,7 @@ message User {
   string nickname = 4;
   bool isEnabled = 5;
   bool isLocked = 6;
-  Image avatar = 7;
+  bool isAvatar = 7;
   UserInfo info = 8;
   repeated string roles = 9;
 }
