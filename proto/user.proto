@@ -39,7 +39,8 @@ message CreateImage {
 
 message UpdateAvatarRequest {
   string uuid = 1;
-  CreateImage image = 2;
+  bool delete = 2;
+  CreateImage image = 3;
 }
 
 message UpdateAvatarResponse {
