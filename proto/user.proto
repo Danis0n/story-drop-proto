@@ -5,7 +5,7 @@ package user;
 service UserService {
   rpc Create(CreateUser) returns (FindOneResponse) {}
   rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
-  rpc FindOneBy(FindOneByRequest) returns (FindOneResponse) {}
+  rpc FindAnyExistBy(FindAnyByRequest) returns (FindAnyByResponse) {}
   rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
   rpc FindOneSession(FindOneSessionRequest) returns (FindOneResponse) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
@@ -36,10 +36,14 @@ message FindOneIdRequest {
   string uuid = 1;
 }
 
-message FindOneByRequest {
+message FindAnyByRequest {
   string username = 1;
   string email = 2;
-  string nickname = 3;
+}
+
+message FindAnyByResponse {
+  bool foundByUsername = 1;
+  bool foundByEmail = 2;
 }
 
 message FindAllRequest {}
