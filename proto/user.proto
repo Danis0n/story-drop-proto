@@ -48,9 +48,10 @@ message UpdateAvatarResponse {
 }
 
 message UpdateRequest {
-  string nickname = 1;
-  string contact = 2;
-  string text = 3;
+  string uuid = 1;
+  string nickname = 2;
+  string contact = 3;
+  string text = 4;
 }
 
 message UpdateResponse {
