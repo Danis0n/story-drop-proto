@@ -9,6 +9,7 @@ service UserService {
   rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
   rpc FindOneSession(FindOneSessionRequest) returns (FindOneResponse) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {}
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
 }
 
@@ -28,9 +29,32 @@ message FindOneSessionRequest {
   string sessionId = 1;
 }
 
-message UpdateRequest {}
+message CreateImage {
+  bytes buffer = 1;
+  string fieldName = 2;
+  string originalName = 3;
+  string mimetype = 4;
+  int32 size = 5;
+}
 
-message UpdateResponse {}
+message UpdateAvatarRequest {
+  string uuid = 1;
+  CreateImage image = 2;
+}
+
+message UpdateAvatarResponse {
+  bool success = 1;
+}
+
+message UpdateRequest {
+  string nickname = 1;
+  string contact = 2;
+  string text = 3;
+}
+
+message UpdateResponse {
+  User user = 1;
+}
 
 message FindOneIdRequest {
   string uuid = 1;
