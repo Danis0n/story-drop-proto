@@ -11,6 +11,15 @@ service UserService {
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
   rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {}
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}
+
+message DeleteRequest {
+  string uuid = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
 }
 
 message FindOneResponse {
