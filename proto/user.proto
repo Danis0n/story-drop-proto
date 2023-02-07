@@ -12,6 +12,11 @@ service UserService {
   rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {}
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+  rpc FindOneRoles(FindOneIdRequest) returns (FindOneRolesResponse) {}
+}
+
+message FindOneRolesResponse {
+  repeated string roles = 1;
 }
 
 message DeleteRequest {

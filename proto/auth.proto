@@ -6,6 +6,15 @@ service AuthService {
   rpc Login(LoginRequest) returns(LoginResponse) {}
   rpc Logout(ValidateRequest) returns (LogoutResponse) {}
   rpc Validate(ValidateRequest) returns (ValidateResponse) {}
+  rpc FindOneUserIdBySession(FindOneUserIdBySessionRequest) returns (FindOneUserIdBySessionResponse) {}
+}
+
+message FindOneUserIdBySessionRequest {
+  string session = 1;
+}
+
+message FindOneUserIdBySessionResponse {
+  string uuid = 1;
 }
 
 message ValidateResponse {
