@@ -13,6 +13,16 @@ service UserService {
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
   rpc FindOneRoles(FindOneIdRequest) returns (FindOneRolesResponse) {}
+  rpc FindOneUsername(FindOneUsernameRequest) returns (FindOneUsernameResponse) {}
+}
+
+message FindOneUsernameResponse {
+  User user = 1;
+  string hashedPassword = 2;
+}
+
+message FindOneUsernameRequest {
+  string username = 1;
 }
 
 message FindOneRolesResponse {
