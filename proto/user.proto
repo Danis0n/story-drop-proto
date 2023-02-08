@@ -19,6 +19,7 @@ service UserService {
 message FindOneUsernameResponse {
   User user = 1;
   string hashedPassword = 2;
+  bool isFound = 3;
 }
 
 message FindOneUsernameRequest {
