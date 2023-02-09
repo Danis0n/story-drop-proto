@@ -36,8 +36,9 @@ message LoginRequest {
   string password = 2;
   string sessionId = 3;
   int32 sessionExpire = 4;
-  string userAgent = 5;
-  string ip = 6;
+  string deviceName = 5;
+  string deviceType = 6;
+  string ip = 7;
 }
 
 message LoginResponse {
