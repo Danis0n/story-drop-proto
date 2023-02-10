@@ -5,8 +5,23 @@ package auth;
 service AuthService {
   rpc Login(LoginRequest) returns(LoginResponse) {}
   rpc Logout(ValidateRequest) returns (LogoutResponse) {}
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
   rpc Validate(ValidateRequest) returns (ValidateResponse) {}
   rpc FindOneUserIdBySession(FindOneUserIdBySessionRequest) returns (FindOneUserIdBySessionResponse) {}
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+  string email = 3;
+  string nickname = 4;
+  string text = 5;
+  string contact = 6;
+}
+
+message RegisterResponse {
+  User user = 1;
+  bool success = 2;
 }
 
 message FindOneUserIdBySessionRequest {
