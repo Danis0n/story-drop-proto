@@ -4,10 +4,15 @@ package auth;
 
 service AuthService {
   rpc Login(LoginRequest) returns(LoginResponse) {}
-  rpc Logout(ValidateRequest) returns (LogoutResponse) {}
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
   rpc Register(RegisterRequest) returns (RegisterResponse) {}
   rpc Validate(ValidateRequest) returns (ValidateResponse) {}
   rpc FindOneUserIdBySession(FindOneUserIdBySessionRequest) returns (FindOneUserIdBySessionResponse) {}
+}
+
+message LogoutRequest {
+  string sessionId = 1;
+  string deviceId = 2;
 }
 
 message RegisterRequest {
