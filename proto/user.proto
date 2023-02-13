@@ -14,6 +14,26 @@ service UserService {
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
   rpc FindOneRoles(FindOneIdRequest) returns (FindOneRolesResponse) {}
   rpc FindOneUsername(FindOneUsernameRequest) returns (FindOneUsernameResponse) {}
+  rpc SetBanned(SetBannedRequest) returns (SetBannedResponse) {}
+  rpc SetEnabled(SetEnabledRequest) returns (SetEnabledResponse) {}
+}
+
+message SetEnabledRequest {
+  string uuid = 1;
+  bool state = 2;
+}
+
+message SetEnabledResponse {
+  bool success = 1;
+}
+
+message SetBannedRequest {
+  string uuid = 1;
+  bool state = 2;
+}
+
+message SetBannedResponse {
+  bool success = 1;
 }
 
 message FindOneUsernameResponse {

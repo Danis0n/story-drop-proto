@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package admin;
+
+service AdminService {
+  rpc SetBanned(SetBannedRequest) returns (SetBannedResponse) {}
+  rpc SetEnabled(SetEnabledRequest) returns (SetEnabledResponse) {}
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
+}
+
+message DeleteUserRequest {
+  string uuid = 1;
+}
+message DeleteUserResponse {
+  bool success = 1;
+}
+
+message DeletePostRequest {
+  string uuid = 1;
+}
+message DeletePostResponse {
+  bool success = 1;
+}
+
+message SetEnabledRequest {
+  string uuid = 1;
+  bool state = 2;
+}
+message SetEnabledResponse {
+  bool success = 1;
+}
+
+message SetBannedRequest {
+  string uuid = 1;
+  bool state = 2;
+}
+message SetBannedResponse {
+  bool success = 1;
+}
