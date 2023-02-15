@@ -4,7 +4,7 @@ package admin;
 
 service AdminService {
   rpc UpdateBanned(UpdateBannedRequest) returns (UpdateBannedResponse) {}
-  rpc UpdateEnabled(UpdateEnabledRequest) returns (UpdataEnabledResponse) {}
+  rpc UpdateEnabled(UpdateEnabledRequest) returns (UpdateEnabledResponse) {}
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
 }
@@ -27,7 +27,7 @@ message UpdateEnabledRequest {
   string uuid = 1;
   bool state = 2;
 }
-message UpdataEnabledResponse {
+message UpdateEnabledResponse {
   bool success = 1;
 }
 
