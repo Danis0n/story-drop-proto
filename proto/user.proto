@@ -119,6 +119,7 @@ message UpdateRequest {
 
 message UpdateResponse {
   User user = 1;
+  bool success = 2;
 }
 
 message FindOneIdRequest {
