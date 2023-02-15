@@ -3,8 +3,8 @@ syntax = "proto3";
 package admin;
 
 service AdminService {
-  rpc SetBanned(SetBannedRequest) returns (SetBannedResponse) {}
-  rpc SetEnabled(SetEnabledRequest) returns (SetEnabledResponse) {}
+  rpc UpdateBanned(UpdateBannedRequest) returns (UpdateBannedResponse) {}
+  rpc UpdateEnabled(UpdateEnabledRequest) returns (UpdataEnabledResponse) {}
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
 }
@@ -23,18 +23,18 @@ message DeletePostResponse {
   bool success = 1;
 }
 
-message SetEnabledRequest {
+message UpdateEnabledRequest {
   string uuid = 1;
   bool state = 2;
 }
-message SetEnabledResponse {
+message UpdataEnabledResponse {
   bool success = 1;
 }
 
-message SetBannedRequest {
+message UpdateBannedRequest {
   string uuid = 1;
   bool state = 2;
 }
-message SetBannedResponse {
+message UpdateBannedResponse {
   bool success = 1;
 }
