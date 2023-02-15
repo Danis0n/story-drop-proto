@@ -6,8 +6,18 @@ service AuthService {
   rpc Login(LoginRequest) returns(LoginResponse) {}
   rpc Logout(LogoutRequest) returns (LogoutResponse) {}
   rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc UpdatePassword(UpdatePasswordRequest) returns (UpdatePasswordResponse) {}
   rpc Validate(ValidateRequest) returns (ValidateResponse) {}
   rpc FindOneUserIdBySession(FindOneUserIdBySessionRequest) returns (FindOneUserIdBySessionResponse) {}
+}
+
+message UpdatePasswordRequest {
+  string uuid = 1;
+  string newPassword = 2;
+  string oldPassword = 3;
+}
+message UpdatePasswordResponse {
+  bool success = 1;
 }
 
 message LogoutRequest {

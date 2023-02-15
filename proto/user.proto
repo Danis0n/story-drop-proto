@@ -9,6 +9,7 @@ service UserService {
   rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
   rpc FindOneSession(FindOneSessionRequest) returns (FindOneResponse) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc UpdatePassword(UpdatePasswordRequest) returns (UpdatePasswordResponse) {}
   rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {}
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
@@ -16,6 +17,14 @@ service UserService {
   rpc FindOneUsername(FindOneUsernameRequest) returns (FindOneUsernameResponse) {}
   rpc SetBanned(SetBannedRequest) returns (SetBannedResponse) {}
   rpc SetEnabled(SetEnabledRequest) returns (SetEnabledResponse) {}
+}
+
+message UpdatePasswordRequest {
+  string uuid = 1;
+  string hashedPassword = 2;
+}
+message UpdatePasswordResponse {
+  bool success = 1;
 }
 
 message SetEnabledRequest {
