@@ -3,7 +3,7 @@ syntax = "proto3";
 package user;
 
 service UserService {
-  rpc Create(CreateUser) returns (FindOneResponse) {}
+  rpc Create(CreateUserRequest) returns (FindOneResponse) {}
   rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
   rpc FindAnyExistBy(FindAnyByRequest) returns (FindAnyByResponse) {}
   rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
@@ -141,7 +141,7 @@ message FindAllResponse {
   repeated User users = 1;
 }
 
-message CreateUser {
+message CreateUserRequest {
   string username = 1;
   string password = 2;
   string email = 3;
