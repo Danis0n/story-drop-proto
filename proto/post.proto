@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package post;
+
+service PostService {
+  rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
+}
+
+message FindOneIdRequest {
+  string uuid = 1;
+}
+
+message FindOneResponse {
+  bool success = 1;
+}
+
+message CreatePostRequest {}
+message CreatePostResponse {}
+
+message UpdatePostRequest {}
+message UpdatePostResponse {}
+
+message DeletePostRequest {}
+message DeletePostResponse {}
+
