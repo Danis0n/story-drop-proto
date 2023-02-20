@@ -9,17 +9,107 @@ service PostService {
 message FindOneIdRequest {
   string uuid = 1;
 }
-
 message FindOneResponse {
   bool success = 1;
+  Post post = 2;
 }
 
-message CreatePostRequest {}
-message CreatePostResponse {}
+message CreatePostRequest {
+  string userId = 1;
+  string name = 2;
+  string genreIds = 3;
+  string tagIds = 4;
+  string characterIds = 5;
+  string fandomIds = 6;
+  string paringIds = 7;
+  string description = 8;
+  string dedication = 9;
+}
+message CreatePostResponse {
+  bool success = 1;
+  Post post = 2;
+}
 
-message UpdatePostRequest {}
+message UpdatePostRequest {
+  string postId = 1;
+  string userId = 2;
+}
 message UpdatePostResponse {}
 
 message DeletePostRequest {}
 message DeletePostResponse {}
 
+message Collection {
+  string collectionId = 1;
+  string userId = 2;
+  string name = 3;
+  bool isHidden = 4;
+}
+
+message Chapter {
+  string chapterId = 1;
+  string postId = 2;
+  string name = 3;
+  string notes = 4;
+  string text = 5;
+  string number = 6;
+  string dateOfCreation = 7;
+}
+
+message ChapterRecord {
+  string chapterId = 1;
+  string postId = 2;
+  string name = 3;
+  string number = 4;
+  string dateOfCreation = 5;
+}
+
+message Post {
+  string postId = 1;
+  string userId = 2;
+  string name = 3;
+  string description = 4;
+  string dedication = 5;
+  bool isHidden = 6;
+  bool isHiddenAdmin = 7;
+  string status = 8;
+  repeated Genre genres = 9;
+  repeated Tag tags = 10;
+  repeated Character characters = 11;
+  repeated Fandom fandoms = 12;
+  repeated Paring parings = 13;
+  repeated ChapterRecord chapters = 14;
+  string dateOfCreation = 15;
+}
+
+message Paring {
+  string paringId = 1;
+  string name = 2;
+}
+
+message Fandom {
+  string fandomId = 1;
+  string name = 2;
+}
+
+message Character {
+  string characterId = 1;
+  string name = 2;
+}
+
+message Tag {
+  string tagId = 1;
+  string name = 2;
+  Age age = 3;
+}
+
+message Age {
+  string ageId = 1;
+  string name = 2;
+  string color = 3;
+}
+
+message Genre {
+  string genreId = 1;
+  string name = 2;
+}
