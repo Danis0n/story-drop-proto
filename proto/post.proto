@@ -3,7 +3,45 @@ syntax = "proto3";
 package post;
 
 service PostService {
-  rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
+  rpc FindOnePostById(FindOneIdRequest) returns (FindOneResponse) {}
+  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
+  rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
+
+  rpc FindOneChapterById(FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
+  rpc CreateChapter(CreateChapterRequest) returns (CreateChapterResponse) {}
+  rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
+  rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
+
+  rpc FindOneFandomById(FindOneFandomByIdRequest) returns (FindOneFandomByIdResponse) {}
+  rpc CreateFandom(CreateFandomRequest) returns (CreateFandomResponse) {}
+  rpc UpdateFandom(UpdateFandomRequest) returns (UpdateFandomResponse) {}
+  rpc DeleteFandom(DeleteFandomRequest) returns (DeleteFandomResponse) {}
+
+  rpc FindOneGenreById(FindOneGenreByIdRequest) returns (FindOneGenreByIdResponse) {}
+  rpc CreateGenre(CreateGenreRequest) returns (CreateGenreResponse) {}
+  rpc UpdateGenre(UpdateGenreRequest) returns (UpdateGenreResponse) {}
+  rpc DeleteGenre(DeleteGenreRequest) returns (DeleteGenreResponse) {}
+
+  rpc FindOneTagById(FindOneTagByIdRequest) returns (FindOneTagByIdResponse) {}
+  rpc CreateTag(CreateTagRequest) returns (CreateTagResponse) {}
+  rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
+  rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
+
+  rpc FindOneCollectionById(FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
+  rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
+  rpc UpdateCollection(UpdateCollectionRequest) returns (UpdateCollectionResponse) {}
+  rpc DeleteCollection(DeleteCollectionRequest) returns (DeleteCollectionResponse) {}
+
+  rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
+  rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
+  rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
+  rpc DeleteCharacter(DeleteCharacterRequest) returns (DeleteCharacterResponse) {}
+
+  rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
+  rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
+  rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
+  rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
 }
 
 message FindOneIdRequest {
@@ -33,11 +71,254 @@ message CreatePostResponse {
 message UpdatePostRequest {
   string postId = 1;
   string userId = 2;
+  string name = 3;
+  string description = 4;
+  string dedication = 5;
+  string statusId = 6;
+  bool isHidden = 7;
 }
-message UpdatePostResponse {}
+message UpdatePostResponse {
+  bool success = 1;
+  Post post = 2;
+}
 
-message DeletePostRequest {}
-message DeletePostResponse {}
+message DeletePostRequest {
+  string postId = 1;
+  string userId = 2;
+}
+message DeletePostResponse {
+  bool success = 1;
+}
+
+message FindOneChapterByIdRequest {
+  string chapterId = 1;
+}
+message FindOneChapterByIdResponse {
+  bool success = 1;
+  Chapter chapter = 2;
+}
+
+message CreateChapterRequest {
+  string postId = 1;
+  string userId = 2;
+  string name = 3;
+  string notes = 4;
+  string text = 5;
+}
+message CreateChapterResponse {
+  bool success = 1;
+  Chapter chapter = 2;
+}
+
+message UpdateChapterRequest {
+  string chapterId = 1;
+  string userId = 2;
+  string notes = 3;
+  string text = 4;
+}
+message UpdateChapterResponse {
+  bool success = 1;
+  Chapter chapter = 2;
+}
+
+message DeleteChapterRequest {
+  string chapterId = 1;
+}
+message DeleteChapterResponse {
+  bool success = 1;
+}
+
+message FindOneFandomByIdRequest {
+  string fandomId = 1;
+}
+message FindOneFandomByIdResponse {
+  Fandom fandom = 1;
+  bool success = 2;
+}
+
+message CreateFandomRequest {
+  string name = 1;
+}
+message CreateFandomResponse {
+  Fandom fandom = 1;
+  bool success = 2;
+}
+
+message UpdateFandomRequest {
+  string fandomId = 1;
+  string name = 2;
+}
+message UpdateFandomResponse {
+  Fandom fandom = 1;
+  bool success = 2;
+}
+
+message DeleteFandomRequest {
+  string fandomId = 1;
+}
+message DeleteFandomResponse {
+  bool success = 1;
+}
+
+message FindOneGenreByIdRequest {
+  string genreId = 1;
+}
+message FindOneGenreByIdResponse {
+  Genre genre = 1;
+  bool success = 2;
+}
+
+message CreateGenreRequest {
+  string name = 1;
+}
+message CreateGenreResponse {
+  Genre genre = 1;
+  bool success = 2;
+}
+
+message UpdateGenreRequest {
+  string genreId = 1;
+  string name = 2;
+}
+message UpdateGenreResponse {
+  Genre genre = 1;
+  bool success = 2;
+}
+
+message DeleteGenreRequest {
+  string genreId = 1;
+}
+message DeleteGenreResponse {
+  bool success = 1;
+}
+
+message FindOneTagByIdRequest {
+  string tagId = 1;
+}
+message FindOneTagByIdResponse {
+  Tag tag = 1;
+  bool success = 2;
+}
+
+message CreateTagRequest {
+  string name = 1;
+}
+message CreateTagResponse {
+  Tag tag = 1;
+  bool success = 2;
+}
+
+message UpdateTagRequest {
+  string tagId = 1;
+  string name = 2;
+}
+message UpdateTagResponse {
+  Tag tag = 1;
+  bool success = 2;
+}
+
+message DeleteTagRequest {
+  string tagId = 1;
+}
+message DeleteTagResponse {
+  bool success = 1;
+}
+
+message FindOneCollectionByIdRequest {
+  string collectionId = 1;
+}
+message FindOneCollectionByIdResponse {
+  Collection collection = 1;
+  bool success = 2;
+}
+
+message CreateCollectionRequest {
+  string name = 1;
+}
+message CreateCollectionResponse {
+  Collection collection = 1;
+  bool success = 2;
+}
+
+message UpdateCollectionRequest {
+  string collectionId = 1;
+  string name = 2;
+}
+message UpdateCollectionResponse {
+  Collection collection = 1;
+  bool success = 2;
+}
+
+message DeleteCollectionRequest {
+  string collectionId = 1;
+}
+message DeleteCollectionResponse {
+  bool success = 1;
+}
+
+message FindOneCharacterByIdRequest {
+  string characterId = 1;
+}
+message FindOneCharacterByIdResponse {
+  Character character = 1;
+  bool success = 2;
+}
+
+message CreateCharacterRequest {
+  string name = 1;
+}
+message CreateCharacterResponse {
+  Character character = 1;
+  bool success = 2;
+}
+
+message UpdateCharacterRequest {
+  string characterId = 1;
+  string name = 2;
+}
+message UpdateCharacterResponse {
+  Character character = 1;
+  bool success = 2;
+}
+
+message DeleteCharacterRequest {
+  string characterId = 1;
+}
+message DeleteCharacterResponse {
+  bool success = 1;
+}
+
+message FindOneParingByIdRequest {
+  string paringId = 1;
+}
+message FindOneParingByIdResponse {
+  Paring paring = 1;
+  bool success = 2;
+}
+
+message CreateParingRequest {
+  string name = 1;
+}
+message CreateParingResponse {
+  Paring paring = 1;
+  bool success = 2;
+}
+
+message UpdateParingRequest {
+  string paringId = 1;
+  string name = 2;
+}
+message UpdateParingResponse {
+  Paring paring = 1;
+  bool success = 2;
+}
+
+message DeleteParingRequest {
+  string paringId = 1;
+}
+message DeleteParingResponse {
+  bool success = 1;
+}
 
 message Collection {
   string collectionId = 1;
