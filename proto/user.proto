@@ -3,18 +3,18 @@ syntax = "proto3";
 package user;
 
 service UserService {
-  rpc Create(CreateUserRequest) returns (FindOneResponse) {}
+  rpc Create(CreateUserRequest) returns (FindOneUserResponse) {}
   rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
   rpc FindAnyExistBy(FindAnyByRequest) returns (FindAnyByResponse) {}
-  rpc FindOneId(FindOneIdRequest) returns (FindOneResponse) {}
-  rpc FindOneSession(FindOneSessionRequest) returns (FindOneResponse) {}
+  rpc FindOneId(FindOneUserIdRequest) returns (FindOneUserResponse) {}
+  rpc FindOneSession(FindOneSessionRequest) returns (FindOneUserResponse) {}
   rpc Update(UpdateRequest) returns (UpdateResponse) {}
   rpc FindPasswordId(FindPasswordIdRequest) returns (FindPasswordIdResponse) {}
   rpc UpdatePassword(UpdatePasswordRequest) returns (UpdatePasswordResponse) {}
   rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {}
   rpc FindAvatarByUser(FindAvatarByUserRequest) returns (FindAvatarResponse) {}
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
-  rpc FindOneRoles(FindOneIdRequest) returns (FindOneRolesResponse) {}
+  rpc FindOneRoles(FindOneUserIdRequest) returns (FindOneRolesResponse) {}
   rpc FindOneUsername(FindOneUsernameRequest) returns (FindOneUsernameResponse) {}
   rpc UpdateBanned(UpdateBannedRequest) returns (UpdateBannedResponse) {}
   rpc UpdateEnabled(UpdateEnabledRequest) returns (UpdateEnabledResponse) {}
@@ -76,7 +76,7 @@ message DeleteResponse {
   bool success = 1;
 }
 
-message FindOneResponse {
+message FindOneUserResponse {
   User user = 1;
 }
 
@@ -122,7 +122,7 @@ message UpdateResponse {
   bool success = 2;
 }
 
-message FindOneIdRequest {
+message FindOneUserIdRequest {
   string uuid = 1;
 }
 

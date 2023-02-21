@@ -3,7 +3,7 @@ syntax = "proto3";
 package post;
 
 service PostService {
-  rpc FindOnePostById(FindOneIdRequest) returns (FindOneResponse) {}
+  rpc FindOnePostById(FindOnePostIdRequest) returns (FindOnePostResponse) {}
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
   rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
@@ -44,10 +44,10 @@ service PostService {
   rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
 }
 
-message FindOneIdRequest {
+message FindOnePostIdRequest {
   string uuid = 1;
 }
-message FindOneResponse {
+message FindOnePostResponse {
   bool success = 1;
   Post post = 2;
 }
