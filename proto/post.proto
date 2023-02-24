@@ -266,6 +266,7 @@ message FindOneCharacterByIdResponse {
 
 message CreateCharacterRequest {
   string name = 1;
+  string fandomId = 2;
 }
 message CreateCharacterResponse {
   Character character = 1;
@@ -275,6 +276,7 @@ message CreateCharacterResponse {
 message UpdateCharacterRequest {
   string characterId = 1;
   string name = 2;
+  string fandomId = 3;
 }
 message UpdateCharacterResponse {
   Character character = 1;
