@@ -234,6 +234,7 @@ message FindOneCollectionByIdResponse {
 
 message CreateCollectionRequest {
   string name = 1;
+  string userId = 2;
 }
 message CreateCollectionResponse {
   Collection collection = 1;
