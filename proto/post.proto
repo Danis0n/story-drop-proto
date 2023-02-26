@@ -235,6 +235,7 @@ message FindOneCollectionByIdResponse {
 message CreateCollectionRequest {
   string name = 1;
   string userId = 2;
+  repeated string postIds = 3;
 }
 message CreateCollectionResponse {
   Collection collection = 1;
