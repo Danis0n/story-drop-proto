@@ -244,6 +244,9 @@ message CreateCollectionResponse {
 message UpdateCollectionRequest {
   string collectionId = 1;
   string name = 2;
+  repeated string postIdsInsert = 3;
+  repeated string postIdsDelete = 4;
+  bool isHidden = 5;
 }
 message UpdateCollectionResponse {
   Collection collection = 1;
