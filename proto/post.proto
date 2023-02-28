@@ -305,6 +305,7 @@ message FindOneParingByIdResponse {
 
 message CreateParingRequest {
   string name = 1;
+  repeated string characterIds = 2;
 }
 message CreateParingResponse {
   Paring paring = 1;
