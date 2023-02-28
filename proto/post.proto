@@ -315,6 +315,8 @@ message CreateParingResponse {
 message UpdateParingRequest {
   string paringId = 1;
   string name = 2;
+  repeated string insertCharacterIds = 3;
+  repeated string removeCharacterIds = 4;
 }
 message UpdateParingResponse {
   Paring paring = 1;
