@@ -2,6 +2,10 @@ syntax = "proto3";
 
 package post;
 
+// read
+// TODO: add findChaptersByUserId
+// TODO: add findPostsByUserId
+
 service PostService {
   rpc FindOnePostById(FindOnePostIdRequest) returns (FindOnePostResponse) {}
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
@@ -13,6 +17,7 @@ service PostService {
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
+  // TODO: add findByCharacter
   rpc FindOneFandomById(FindOneFandomByIdRequest) returns (FindOneFandomByIdResponse) {}
   rpc CreateFandom(CreateFandomRequest) returns (CreateFandomResponse) {}
   rpc UpdateFandom(UpdateFandomRequest) returns (UpdateFandomResponse) {}
@@ -28,16 +33,25 @@ service PostService {
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
 
+
+  // TODO: add create with posts
+  // TODO: add add post to collection_post
+  // TODO: add delete post from collection_post
   rpc FindOneCollectionById(FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (UpdateCollectionResponse) {}
   rpc DeleteCollection(DeleteCollectionRequest) returns (DeleteCollectionResponse) {}
 
+  // TODO : add findByParing
+  // TODO : add findByFandom
   rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
   rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
   rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
   rpc DeleteCharacter(DeleteCharacterRequest) returns (DeleteCharacterResponse) {}
 
+  // TODO: add findByCharacter
+  // TODO: add insertCharacter
+  // TODO: add removeCharacter
   rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
@@ -115,6 +129,7 @@ message UpdateChapterRequest {
   string userId = 2;
   string notes = 3;
   string text = 4;
+  string name = 5;
 }
 message UpdateChapterResponse {
   bool success = 1;
