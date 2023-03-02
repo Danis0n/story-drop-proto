@@ -7,11 +7,14 @@ package post;
 // TODO: add findPostsByUserId
 
 service PostService {
-  rpc FindOnePostById(FindOnePostIdRequest) returns (FindOnePostResponse) {}
+  // TODO: check if beta has access to the post
+  // TODO: check if user owns the post
+  rpc FindOnePostById(FindOnePostByIdRequest) returns (FindOnePostResponse) {}
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
   rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
 
+//  TODO: add updateBeta
   rpc FindOneChapterById(FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
   rpc CreateChapter(CreateChapterRequest) returns (CreateChapterResponse) {}
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
@@ -58,7 +61,7 @@ service PostService {
   rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
 }
 
-message FindOnePostIdRequest {
+message FindOnePostByIdRequest {
   string uuid = 1;
 }
 message FindOnePostResponse {
