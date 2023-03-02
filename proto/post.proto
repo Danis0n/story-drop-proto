@@ -118,6 +118,7 @@ message CreateChapterRequest {
   string name = 3;
   string notes = 4;
   string text = 5;
+  bool isHidden = 6;
 }
 message CreateChapterResponse {
   bool success = 1;
@@ -130,6 +131,7 @@ message UpdateChapterRequest {
   string notes = 3;
   string text = 4;
   string name = 5;
+  bool isHidden = 6;
 }
 message UpdateChapterResponse {
   bool success = 1;
