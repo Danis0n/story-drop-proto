@@ -9,6 +9,7 @@ package post;
 service PostService {
   // TODO: check if beta has access to the post
   // TODO: check if user owns the post
+  // TODO: check if user has access to the chapter
   rpc FindOnePostById(FindOnePostByIdRequest) returns (FindOnePostResponse) {}
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
   rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
@@ -72,11 +73,11 @@ message FindOnePostResponse {
 message CreatePostRequest {
   string userId = 1;
   string name = 2;
-  string genreIds = 3;
-  string tagIds = 4;
-  string characterIds = 5;
-  string fandomIds = 6;
-  string paringIds = 7;
+  repeated string genreIds = 3;
+  repeated string tagIds = 4;
+  repeated string characterIds = 5;
+  repeated string fandomIds = 6;
+  repeated string paringIds = 7;
   string description = 8;
   string dedication = 9;
 }
