@@ -55,8 +55,8 @@ service PostService {
       (FindManyCharacterByNameRequest) returns (FindManyCharacterByNameResponse) {}
   rpc FindManyCharacterByParing
       (FindManyCharacterByParingRequest) returns (FindManyCharacterByParingResponse) {}
-  rpc FindOneCharacterByFandom
-      (FindOneCharacterByFandomRequest) returns (FindManyCharacterByFandomResponse) {}
+  rpc FindManyCharacterByFandom
+      (FindManyCharacterByFandomRequest) returns (FindManyCharacterByFandomResponse) {}
   rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
   rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
   rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
@@ -359,7 +359,7 @@ message DeleteCollectionResponse {
   bool success = 1;
 }
 
-message FindOneCharacterByFandomRequest {
+message FindManyCharacterByFandomRequest {
   string fandomId = 1;
 }
 message FindManyCharacterByFandomResponse {
