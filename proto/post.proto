@@ -97,7 +97,7 @@ message FindManyCharacterByNameRequest {
   string name = 1;
 }
 message FindManyCharacterByNameResponse {
-  repeated Fandom fandoms = 1;
+  repeated Character characters = 1;
 }
 
 message FindOneParingByCharacterRequest {
