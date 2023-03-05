@@ -20,7 +20,7 @@ service PostService {
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
   rpc FindOneFandomByCharacter
-      (FindOneFandomByCharacterRequest) returns (FindOneFandomByCharacterResponse) {}
+      (FindOneFandomByCharacterRequest) returns (FindManyFandomByCharacterResponse) {}
   rpc FindManyFandomByName
       (FindManyFandomByNameRequest) returns (FindManyFandomByNameResponse) {}
   rpc FindOneFandomById
@@ -54,9 +54,9 @@ service PostService {
   rpc FindManyCharacterByName
       (FindManyCharacterByNameRequest) returns (FindManyCharacterByNameResponse) {}
   rpc FindOneCharacterByParing
-      (FindOneCharacterByParingRequest) returns (FindOneCharacterByParingResponse) {}
+      (FindOneCharacterByParingRequest) returns (FindManyCharacterByParingResponse) {}
   rpc FindOneCharacterByFandom
-      (FindOneCharacterByFandomRequest) returns (FindOneCharacterByFandomResponse) {}
+      (FindOneCharacterByFandomRequest) returns (FindManyCharacterByFandomResponse) {}
   rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
   rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
   rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
@@ -65,7 +65,7 @@ service PostService {
   rpc FindManyParingByName
       (FindManyParingByNameRequest) returns (FindManyParingByNameResponse) {}
   rpc FindOneParingByCharacter
-      (FindOneParingByCharacterRequest) returns (FindOneParingByCharacterResponse) {}
+      (FindOneParingByCharacterRequest) returns (FindManyParingByCharacterResponse) {}
   rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
@@ -103,9 +103,8 @@ message FindManyCharacterByNameResponse {
 message FindOneParingByCharacterRequest {
   string characterId = 1;
 }
-message FindOneParingByCharacterResponse {
-  Paring paring = 1;
-  bool success = 2;
+message FindManyParingByCharacterResponse {
+  repeated Paring paring = 1;
 }
 
 message UpdatePostToCollectionRequest {
@@ -222,9 +221,8 @@ message FindManyFandomByNameResponse {
 message FindOneFandomByCharacterRequest {
   string characterId = 1;
 }
-message FindOneFandomByCharacterResponse {
-  Fandom fandom = 1;
-  bool success = 2;
+message FindManyFandomByCharacterResponse {
+  repeated Fandom fandom = 1;
 }
 
 message FindOneFandomByIdRequest {
@@ -364,17 +362,15 @@ message DeleteCollectionResponse {
 message FindOneCharacterByFandomRequest {
   string fandomId = 1;
 }
-message FindOneCharacterByFandomResponse {
-  Character character = 1;
-  bool success = 2;
+message FindManyCharacterByFandomResponse {
+  repeated Character character = 1;
 }
 
 message FindOneCharacterByParingRequest {
   string paringId = 1;
 }
-message FindOneCharacterByParingResponse {
-  Character character = 1;
-  bool success = 2;
+message FindManyCharacterByParingResponse {
+  repeated Character character = 1;
 }
 
 message FindOneCharacterByIdRequest {
