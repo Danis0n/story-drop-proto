@@ -104,7 +104,7 @@ message FindOneParingByCharacterRequest {
   string characterId = 1;
 }
 message FindManyParingByCharacterResponse {
-  repeated Paring paring = 1;
+  repeated Paring parings = 1;
 }
 
 message UpdatePostToCollectionRequest {
@@ -222,7 +222,7 @@ message FindOneFandomByCharacterRequest {
   string characterId = 1;
 }
 message FindManyFandomByCharacterResponse {
-  repeated Fandom fandom = 1;
+  repeated Fandom fandoms = 1;
 }
 
 message FindOneFandomByIdRequest {
@@ -363,14 +363,14 @@ message FindOneCharacterByFandomRequest {
   string fandomId = 1;
 }
 message FindManyCharacterByFandomResponse {
-  repeated Character character = 1;
+  repeated Character characters = 1;
 }
 
 message FindOneCharacterByParingRequest {
   string paringId = 1;
 }
 message FindManyCharacterByParingResponse {
-  repeated Character character = 1;
+  repeated Character characters = 1;
 }
 
 message FindOneCharacterByIdRequest {
