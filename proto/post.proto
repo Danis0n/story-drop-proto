@@ -7,59 +7,84 @@ package post;
 // TODO: add findPostsByUserId
 
 service PostService {
-  // TODO: check if beta has access to the post
-  // TODO: check if user owns the post
-  // TODO: check if user has access to the chapter
+  rpc IsOwner(IsOwnerRequest) returns (IsOwnerResponse) {}
   rpc FindOnePostById(FindOnePostByIdRequest) returns (FindOnePostResponse) {}
   rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {}
   rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
 
-//  TODO: add updateBeta
-  rpc FindOneChapterById(FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
+  rpc FindOneChapterById
+      (FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
   rpc CreateChapter(CreateChapterRequest) returns (CreateChapterResponse) {}
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
-  // TODO: add findByCharacter
-  rpc FindOneFandomById(FindOneFandomByIdRequest) returns (FindOneFandomByIdResponse) {}
+  rpc FindOneFandomByCharacter
+      (FindOneFandomByCharacterRequest) returns (FindOneFandomByCharacterResponse) {}
+  rpc FindOneFandomById
+      (FindOneFandomByIdRequest) returns (FindOneFandomByIdResponse) {}
   rpc CreateFandom(CreateFandomRequest) returns (CreateFandomResponse) {}
   rpc UpdateFandom(UpdateFandomRequest) returns (UpdateFandomResponse) {}
   rpc DeleteFandom(DeleteFandomRequest) returns (DeleteFandomResponse) {}
 
-  rpc FindOneGenreById(FindOneGenreByIdRequest) returns (FindOneGenreByIdResponse) {}
+  rpc FindOneGenreById
+      (FindOneGenreByIdRequest) returns (FindOneGenreByIdResponse) {}
   rpc CreateGenre(CreateGenreRequest) returns (CreateGenreResponse) {}
   rpc UpdateGenre(UpdateGenreRequest) returns (UpdateGenreResponse) {}
   rpc DeleteGenre(DeleteGenreRequest) returns (DeleteGenreResponse) {}
 
-  rpc FindOneTagById(FindOneTagByIdRequest) returns (FindOneTagByIdResponse) {}
+  rpc FindOneTagById
+      (FindOneTagByIdRequest) returns (FindOneTagByIdResponse) {}
   rpc CreateTag(CreateTagRequest) returns (CreateTagResponse) {}
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
 
-
-  // TODO: add create with posts
-  // TODO: add add post to collection_post
-  // TODO: add delete post from collection_post
-  rpc FindOneCollectionById(FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
+  rpc FindOneCollectionById
+      (FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (UpdateCollectionResponse) {}
   rpc DeleteCollection(DeleteCollectionRequest) returns (DeleteCollectionResponse) {}
 
-  // TODO : add findByParing
-  // TODO : add findByFandom
+  rpc FindOneCharacterByParing
+      (FindOneCharacterByParingRequest) returns (FindOneCharacterByParingResponse) {}
+  rpc FindOneCharacterByFandom
+      (FindOneCharacterByFandomRequest) returns (FindOneCharacterByFandomResponse) {}
   rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
   rpc CreateCharacter(CreateCharacterRequest) returns (CreateCharacterResponse) {}
   rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
   rpc DeleteCharacter(DeleteCharacterRequest) returns (DeleteCharacterResponse) {}
 
-  // TODO: add findByCharacter
-  // TODO: add insertCharacter
-  // TODO: add removeCharacter
+  rpc FindOneParingByCharacter
+      (FindOneParingByCharacterRequest) returns (FindOneParingByCharacterResponse) {}
   rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
   rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
+}
+
+message FindOneParingByCharacterRequest {
+  string characterId = 1;
+}
+message FindOneParingByCharacterResponse {
+  Paring paring = 1;
+  bool success = 2;
+}
+
+message UpdatePostToCollectionRequest {
+  repeated string insertIds = 1;
+  repeated string deleteIds = 2;
+  string collectionId = 3;
+}
+message UpdatePostToCollectionResponse {
+  bool success = 1;
+}
+
+message IsOwnerRequest {
+  string postId = 1;
+  string userId = 2;
+}
+message IsOwnerResponse {
+  bool success = 1;
 }
 
 message FindOnePostByIdRequest {
@@ -147,6 +172,14 @@ message DeleteChapterRequest {
 }
 message DeleteChapterResponse {
   bool success = 1;
+}
+
+message FindOneFandomByCharacterRequest {
+  string characterId = 1;
+}
+message FindOneFandomByCharacterResponse {
+  Fandom fandom = 1;
+  bool success = 2;
 }
 
 message FindOneFandomByIdRequest {
@@ -281,6 +314,22 @@ message DeleteCollectionRequest {
 }
 message DeleteCollectionResponse {
   bool success = 1;
+}
+
+message FindOneCharacterByFandomRequest {
+  string fandomId = 1;
+}
+message FindOneCharacterByFandomResponse {
+  Character character = 1;
+  bool success = 2;
+}
+
+message FindOneCharacterByParingRequest {
+  string paring = 1;
+}
+message FindOneCharacterByParingResponse {
+  Character character = 1;
+  bool success = 2;
 }
 
 message FindOneCharacterByIdRequest {
