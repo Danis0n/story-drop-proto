@@ -19,8 +19,8 @@ service PostService {
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
-  rpc FindOneFandomByCharacter
-      (FindOneFandomByCharacterRequest) returns (FindManyFandomByCharacterResponse) {}
+  rpc FindManyFandomByCharacter
+      (FindManyFandomByCharacterRequest) returns (FindManyFandomByCharacterResponse) {}
   rpc FindManyFandomByName
       (FindManyFandomByNameRequest) returns (FindManyFandomByNameResponse) {}
   rpc FindOneFandomById
@@ -53,8 +53,8 @@ service PostService {
 
   rpc FindManyCharacterByName
       (FindManyCharacterByNameRequest) returns (FindManyCharacterByNameResponse) {}
-  rpc FindOneCharacterByParing
-      (FindOneCharacterByParingRequest) returns (FindManyCharacterByParingResponse) {}
+  rpc FindManyCharacterByParing
+      (FindManyCharacterByParingRequest) returns (FindManyCharacterByParingResponse) {}
   rpc FindOneCharacterByFandom
       (FindOneCharacterByFandomRequest) returns (FindManyCharacterByFandomResponse) {}
   rpc FindOneCharacterById(FindOneCharacterByIdRequest) returns (FindOneCharacterByIdResponse) {}
@@ -64,8 +64,8 @@ service PostService {
 
   rpc FindManyParingByName
       (FindManyParingByNameRequest) returns (FindManyParingByNameResponse) {}
-  rpc FindOneParingByCharacter
-      (FindOneParingByCharacterRequest) returns (FindManyParingByCharacterResponse) {}
+  rpc FindManyParingByCharacter
+      (FindManyParingByCharacterRequest) returns (FindManyParingByCharacterResponse) {}
   rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
@@ -100,7 +100,7 @@ message FindManyCharacterByNameResponse {
   repeated Character characters = 1;
 }
 
-message FindOneParingByCharacterRequest {
+message FindManyParingByCharacterRequest {
   string characterId = 1;
 }
 message FindManyParingByCharacterResponse {
@@ -218,7 +218,7 @@ message FindManyFandomByNameResponse {
   repeated Fandom fandoms = 1;
 }
 
-message FindOneFandomByCharacterRequest {
+message FindManyFandomByCharacterRequest {
   string characterId = 1;
 }
 message FindManyFandomByCharacterResponse {
@@ -366,7 +366,7 @@ message FindManyCharacterByFandomResponse {
   repeated Character characters = 1;
 }
 
-message FindOneCharacterByParingRequest {
+message FindManyCharacterByParingRequest {
   string paringId = 1;
 }
 message FindManyCharacterByParingResponse {
