@@ -325,7 +325,7 @@ message FindOneCharacterByFandomResponse {
 }
 
 message FindOneCharacterByParingRequest {
-  string paring = 1;
+  string paringId = 1;
 }
 message FindOneCharacterByParingResponse {
   Character character = 1;
