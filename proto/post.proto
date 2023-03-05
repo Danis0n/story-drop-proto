@@ -19,8 +19,11 @@ service PostService {
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
+//  findByName
   rpc FindOneFandomByCharacter
       (FindOneFandomByCharacterRequest) returns (FindOneFandomByCharacterResponse) {}
+  rpc FindManyFandomByName
+      (FindManyFandomByNameRequest) returns (FindManyFandomByNameResponse) {}
   rpc FindOneFandomById
       (FindOneFandomByIdRequest) returns (FindOneFandomByIdResponse) {}
   rpc CreateFandom(CreateFandomRequest) returns (CreateFandomResponse) {}
@@ -172,6 +175,13 @@ message DeleteChapterRequest {
 }
 message DeleteChapterResponse {
   bool success = 1;
+}
+
+message FindManyFandomByNameRequest {
+  string name = 1;
+}
+message FindManyFandomByNameResponse {
+  repeated Fandom fandoms = 1;
 }
 
 message FindOneFandomByCharacterRequest {
