@@ -19,7 +19,6 @@ service PostService {
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
-//  findByName
   rpc FindOneFandomByCharacter
       (FindOneFandomByCharacterRequest) returns (FindOneFandomByCharacterResponse) {}
   rpc FindManyFandomByName
@@ -30,6 +29,8 @@ service PostService {
   rpc UpdateFandom(UpdateFandomRequest) returns (UpdateFandomResponse) {}
   rpc DeleteFandom(DeleteFandomRequest) returns (DeleteFandomResponse) {}
 
+  rpc FindManyGenreByName
+      (FindManyGenreByNameRequest) returns (FindManyGenreByNameResponse) {}
   rpc FindOneGenreById
       (FindOneGenreByIdRequest) returns (FindOneGenreByIdResponse) {}
   rpc CreateGenre(CreateGenreRequest) returns (CreateGenreResponse) {}
@@ -42,12 +43,16 @@ service PostService {
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
 
+  rpc FindManyCollectionByName
+      (FindManyCollectionByNameRequest) returns (FindManyCollectionByNameResponse) {}
   rpc FindOneCollectionById
       (FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
   rpc UpdateCollection(UpdateCollectionRequest) returns (UpdateCollectionResponse) {}
   rpc DeleteCollection(DeleteCollectionRequest) returns (DeleteCollectionResponse) {}
 
+  rpc FindManyCharacterByName
+      (FindManyCharacterByNameRequest) returns (FindManyCharacterByNameResponse) {}
   rpc FindOneCharacterByParing
       (FindOneCharacterByParingRequest) returns (FindOneCharacterByParingResponse) {}
   rpc FindOneCharacterByFandom
@@ -57,12 +62,42 @@ service PostService {
   rpc UpdateCharacter(UpdateCharacterRequest) returns (UpdateCharacterResponse) {}
   rpc DeleteCharacter(DeleteCharacterRequest) returns (DeleteCharacterResponse) {}
 
+  rpc FindManyParingByName
+      (FindManyParingByNameRequest) returns (FindManyParingByNameResponse) {}
   rpc FindOneParingByCharacter
       (FindOneParingByCharacterRequest) returns (FindOneParingByCharacterResponse) {}
   rpc FindOneParingById(FindOneParingByIdRequest) returns (FindOneParingByIdResponse) {}
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
   rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
+}
+
+message FindManyParingByNameRequest {
+  string name = 1;
+}
+message FindManyParingByNameResponse {
+  repeated Paring parings = 1;
+}
+
+message FindManyGenreByNameRequest {
+  string name = 1;
+}
+message FindManyGenreByNameResponse {
+  repeated Genre genres = 1;
+}
+
+message FindManyCollectionByNameRequest {
+  string name = 1;
+}
+message FindManyCollectionByNameResponse {
+  repeated Collection collections = 1;
+}
+
+message FindManyCharacterByNameRequest {
+  string name = 1;
+}
+message FindManyCharacterByNameResponse {
+  repeated Fandom fandoms = 1;
 }
 
 message FindOneParingByCharacterRequest {
