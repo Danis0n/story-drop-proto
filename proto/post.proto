@@ -222,7 +222,8 @@ message FindOneFandomByCharacterRequest {
   string characterId = 1;
 }
 message FindOneFandomByCharacterResponse {
-  repeated Fandom fandoms = 1;
+  Fandom fandom = 1;
+  bool success = 2;
 }
 
 message FindOneFandomByIdRequest {
