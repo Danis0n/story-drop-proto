@@ -19,8 +19,8 @@ service PostService {
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
 
-  rpc FindManyFandomByCharacter
-      (FindManyFandomByCharacterRequest) returns (FindManyFandomByCharacterResponse) {}
+  rpc FindOneFandomByCharacter
+      (FindOneFandomByCharacterRequest) returns (FindOneFandomByCharacterResponse) {}
   rpc FindManyFandomByName
       (FindManyFandomByNameRequest) returns (FindManyFandomByNameResponse) {}
   rpc FindOneFandomById
@@ -218,10 +218,10 @@ message FindManyFandomByNameResponse {
   repeated Fandom fandoms = 1;
 }
 
-message FindManyFandomByCharacterRequest {
+message FindOneFandomByCharacterRequest {
   string characterId = 1;
 }
-message FindManyFandomByCharacterResponse {
+message FindOneFandomByCharacterResponse {
   repeated Fandom fandoms = 1;
 }
 
