@@ -15,6 +15,8 @@ service PostService {
 
   rpc FindOneChapterById
       (FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
+  rpc FindManyChapterByPostId
+      (FindManyChapterByPostIdRequest) returns (FindManyChapterByPostIdResponse) {}
   rpc CreateChapter(CreateChapterRequest) returns (CreateChapterResponse) {}
   rpc UpdateChapter(UpdateChapterRequest) returns (UpdateChapterResponse) {}
   rpc DeleteChapter(DeleteChapterRequest) returns (DeleteChapterResponse) {}
@@ -42,7 +44,6 @@ service PostService {
   rpc CreateTag(CreateTagRequest) returns (CreateTagResponse) {}
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
-
 
   rpc FindManyCollectionByName
       (FindManyCollectionByNameRequest) returns (FindManyCollectionByNameResponse) {}
@@ -178,6 +179,13 @@ message DeletePostRequest {
 }
 message DeletePostResponse {
   bool success = 1;
+}
+
+message FindManyChapterByPostIdRequest {
+  string postId = 1;
+}
+message FindManyChapterByPostIdResponse {
+  repeated Chapter chapters = 1;
 }
 
 message FindOneChapterByIdRequest {
