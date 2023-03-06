@@ -43,8 +43,11 @@ service PostService {
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
 
+
   rpc FindManyCollectionByName
       (FindManyCollectionByNameRequest) returns (FindManyCollectionByNameResponse) {}
+  rpc FindManyCollectionByUserId
+      (FindManyCollectionByUserIdRequest) returns (FindManyCollectionByUserIdResponse) {}
   rpc FindOneCollectionById
       (FindOneCollectionByIdRequest) returns (FindOneCollectionByIdResponse) {}
   rpc CreateCollection(CreateCollectionRequest) returns (CreateCollectionResponse) {}
@@ -70,6 +73,13 @@ service PostService {
   rpc CreateParing(CreateParingRequest) returns (CreateParingResponse) {}
   rpc UpdateParing(UpdateParingRequest) returns (UpdateParingResponse) {}
   rpc DeleteParing(DeleteParingRequest) returns (DeleteParingResponse) {}
+}
+
+message FindManyCollectionByUserIdRequest {
+  string userId = 1;
+}
+message FindManyCollectionByUserIdResponse {
+  repeated Collection collections = 1;
 }
 
 message FindManyParingByNameRequest {
