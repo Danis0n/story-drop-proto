@@ -136,7 +136,7 @@ message IsOwnerResponse {
 }
 
 message FindOnePostByIdRequest {
-  string uuid = 1;
+  string postId = 1;
 }
 message FindOnePostResponse {
   bool success = 1;
@@ -175,7 +175,6 @@ message UpdatePostResponse {
 
 message DeletePostRequest {
   string postId = 1;
-  string userId = 2;
 }
 message DeletePostResponse {
   bool success = 1;
