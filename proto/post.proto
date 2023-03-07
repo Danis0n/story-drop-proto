@@ -13,6 +13,7 @@ service PostService {
   rpc UpdatePost(UpdatePostRequest) returns (UpdatePostResponse) {}
   rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
 
+  rpc IsOwnerChapter(IsOwnerChapterRequest) returns (IsOwnerChapterResponse) {}
   rpc FindOneChapterById
       (FindOneChapterByIdRequest) returns (FindOneChapterByIdResponse) {}
   rpc FindManyChapterByPostId
@@ -185,6 +186,14 @@ message FindManyChapterByPostIdRequest {
 }
 message FindManyChapterByPostIdResponse {
   repeated Chapter chapters = 1;
+}
+
+message IsOwnerChapterRequest {
+  string chapterId = 1;
+  string userId = 2;
+}
+message IsOwnerChapterResponse {
+  bool success = 1;
 }
 
 message FindOneChapterByIdRequest {
