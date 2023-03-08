@@ -162,16 +162,15 @@ message CreatePostResponse {
 
 message UpdatePostRequest {
   string postId = 1;
-  string userId = 2;
-  string name = 3;
-  string description = 4;
-  string dedication = 5;
-  string statusId = 6;
-  bool isHidden = 7;
-  repeated string insertGenres = 8;
-  repeated string deleteGenres = 9;
-  repeated string insertTags = 10;
-  repeated string deleteTags = 11;
+  string name = 2;
+  string description = 3;
+  string dedication = 4;
+  string statusId = 5;
+  bool isHidden = 6;
+  repeated string insertGenres = 7;
+  repeated string deleteGenres = 8;
+  repeated string insertTags = 9;
+  repeated string deleteTags = 10;
 }
 message UpdatePostResponse {
   bool success = 1;
