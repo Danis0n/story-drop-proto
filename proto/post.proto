@@ -168,6 +168,10 @@ message UpdatePostRequest {
   string dedication = 5;
   string statusId = 6;
   bool isHidden = 7;
+  repeated string insertGenres = 8;
+  repeated string deleteGenres = 9;
+  repeated string insertTags = 10;
+  repeated string deleteTags = 11;
 }
 message UpdatePostResponse {
   bool success = 1;
