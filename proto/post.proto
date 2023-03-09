@@ -504,7 +504,7 @@ message Post {
   string dedication = 5;
   bool isHidden = 6;
   bool isHiddenAdmin = 7;
-  string status = 8;
+  bool isFinished = 8;
   repeated Genre genres = 9;
   repeated Tag tags = 10;
   repeated Character characters = 11;
