@@ -157,7 +157,7 @@ message CreatePostRequest {
 }
 message CreatePostResponse {
   bool success = 1;
-  Post post = 2;
+  string postId = 2;
 }
 
 message UpdatePostRequest {
@@ -174,7 +174,7 @@ message UpdatePostRequest {
 }
 message UpdatePostResponse {
   bool success = 1;
-  Post post = 2;
+  string postId = 2;
 }
 
 message DeletePostRequest {
