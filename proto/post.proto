@@ -165,7 +165,7 @@ message UpdatePostRequest {
   string name = 2;
   string description = 3;
   string dedication = 4;
-  string statusId = 5;
+  bool is_finished = 5;
   bool isHidden = 6;
   repeated string insertGenres = 7;
   repeated string deleteGenres = 8;
